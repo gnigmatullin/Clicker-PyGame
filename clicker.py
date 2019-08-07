@@ -34,7 +34,7 @@ def get_color():
 
 # Text Renderer
 def text_format(message, textSize, textColor):
-    newFont = pygame.font.SysFont("arial", textSize)
+    newFont = pygame.font.Font("retro.ttf", textSize)
     newText = newFont.render(message, 0, textColor)
     return newText
 
@@ -82,7 +82,6 @@ def main_menu():
         clock.tick(FPS)
 
 def main():
-    font = pygame.font.SysFont("arial", 16)
     level = 1
     score = 0
     hits = 0
@@ -118,6 +117,7 @@ def main():
                         score = score - radius
         # drawing
         screen.fill((0, 0, 0))
+        font = pygame.font.Font("retro.ttf", 25)
         text = font.render("Level: "+str(level), True, (255, 255, 255))
         screen.blit(text, (10, 5))
         text = font.render("Score: "+str(score), True, (255, 201, 14))
@@ -143,9 +143,9 @@ def main():
         
     # game over
     screen.fill((0, 0, 0))
-    font = pygame.font.SysFont("arial", 32)
-    text = font.render("Game over!", True, (255, 255, 255))
-    screen.blit(text, (screen_width/2-70, screen_height/2-50))
+    font = pygame.font.Font("retro.ttf", 75)
+    text = font.render("Game over!", True, yellow)
+    screen.blit(text, (screen_width/2-140, screen_height/2-50))
     pygame.display.flip()
     pygame.event.clear()
     pygame.event.wait()
